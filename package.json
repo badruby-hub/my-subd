@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "server": "npx json-server -p 3001 ./db.json",
     "lint": "next lint"
   },
   "dependencies": {
