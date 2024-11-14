@@ -2,12 +2,11 @@ import useSwr from "swr";
 import toast from "react-hot-toast";
 import { Error } from "@/components/Error";
 import { ObjTableSwr } from "@/components/SwrObjTable";
-import { useState } from "react";
+
 
 
 const 
    API_URL = "http://localhost:3001/users",
-   DELETE = 'del',
    fetcher = async ()=> {
     const
         response = await fetch(API_URL);
@@ -15,13 +14,10 @@ const
         return await response.json();
    };
 
-   export function ButtonDelSwr() {     
-    return <button data-action={DELETE}>Удалить пользователя</button>
-}
 
 export function DemoSwr() {
     const 
-        {data,error,isLoading, isValidating,mutate} = useSwr(API_URL,fetcher),
+        {data,error,isLoading, isValidating,mutate} = useSwr(API_URL,fetcher, {revalidateOnFocus:false}),
         onClick = async event =>{
             const
             action = event.target.closest('[data-action]')?.dataset?.action,
@@ -32,7 +28,7 @@ export function DemoSwr() {
             const 
              getPromise = ()=>{
                 switch (action) {
-                    case DELETE:
+                    case 'del':
                     optimisticData = data.filter(el=> String(el.id) !== id);
                     return fetch(API_URL + '/' + id, {method: 'DELETE'})
                     .then( res => {
@@ -53,7 +49,7 @@ export function DemoSwr() {
             }
         }
     return <>
-    <div style={{position:'absolute', fontSize:'xx-large'}}>
+    <div style={{position:'absolute', fontSize:'xxx-large'}}>
         {isLoading && '⌛'}
         {isValidating && '👁️'}
     </div>

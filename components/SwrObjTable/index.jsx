@@ -1,20 +1,47 @@
 
-import { ButtonDelSwr } from "@/components/demo/Demo-swr"
 import classes from "./SwrObjTable.module.css"
 
 
 export function ObjTableSwr({data}) {
   return<>
-   <div>
-  {data.map(obj =><fieldset className={classes.objtable} key={obj.id} data-id={obj.id}>
-<legend>id: {obj.id}</legend>
-<p>Name: {obj.name}</p>
-<p>Email: {obj.email}</p>
-<p>Phone: {obj.phone}</p>
-<p>Address: {obj.address.city}, {obj.address.street}, {obj.address.suite}</p>
-<p>Company: {obj.company.name}</p>
-<ButtonDelSwr/>
-  </fieldset>)}
-  </div>
+   <table className={classes.objtable}>
+   <thead>
+      <tr>
+        <th>
+          id
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          email
+        </th>
+        <th>
+          phone
+        </th>
+        <th>
+          address
+        </th>
+        <th>
+          company
+        </th>
+        <th>
+        action
+        </th>
+        </tr>
+</thead>
+<tbody >
+{data.map(obj =>
+  <tr key={obj.id} data-id={obj.id}>
+<th> {obj.id}</th>
+<td> {obj.name}</td>
+<td> {obj.email}</td>
+<td> {obj.phone}</td>
+<td> {obj.address.city}, {obj.address.street}, {obj.address.suite}</td>
+<td> {obj.company.name}</td>
+<td><button data-action={'del'}>Удалить пользователя</button></td>
+</tr>)}
+  </tbody>
+  </table>
   </>
 }
