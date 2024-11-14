@@ -1,0 +1,14 @@
+.header {
+    width: 100%;
+
+    & nav {
+        width: 250px;
+
+        & ul {
+            display        : flex;
+            justify-content: space-between;
+            list-style-type: none;
+
+        }
+    }
+}

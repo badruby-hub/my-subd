@@ -1,7 +1,9 @@
 import { useState } from "react";
 import classes from "./Button.module.css"
 import { ObjTable } from "../ObjTable";
-export function ButtonAdd({id}) {
+
+
+export function ButtonAdd() {
     const [name, setName] = useState(""),
           [email, setEmail] = useState(""),
           [phone, setPhone] = useState("???"),

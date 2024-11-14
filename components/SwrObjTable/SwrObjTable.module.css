@@ -1,0 +1,16 @@
+/* .objtable {
+    border-collapse: collapse;
+    thead {
+      text-align: center;
+    }
+  
+    & td, th {
+      border: 1px solid lightblue;
+    }
+  } */
+
+  .objtable{
+    border: 1px solid gray;
+    width: 20%;
+    margin: 1em;
+  }
