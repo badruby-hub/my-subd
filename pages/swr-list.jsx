@@ -1,5 +1,4 @@
 import { DemoSwr } from "@/components/demo/Demo-swr";
-import { Fetcher } from "@/components/SwrFetcher";
 
 
 export default function SwrHome() {
